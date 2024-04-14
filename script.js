@@ -8,7 +8,7 @@ const startScreen = document.getElementById("start-screen");
 const announce = document.querySelector(".announce p");
 const dialog = document.querySelector("dialog");
 const restartButton = document.getElementById("restart-btn");
-
+const aiDiffButton = document.querySelector(".diff");
 
 
 const X_CLASS = "X";
@@ -296,6 +296,19 @@ aiButton.addEventListener("click", function() {
 });
 
 startButton.addEventListener("click", startGame);
+
+aiDiffButton.addEventListener("click", toggleAIDifficulty);
+
+function toggleAIDifficulty() {
+
+    if (currentDifficulty === Difficulty.EASY) {
+        currentDifficulty = Difficulty.UNBEATABLE;
+        aiDiffButton.textContent = "AI: Unbeatable";
+    } else {
+        currentDifficulty = Difficulty.EASY;
+        aiDiffButton.textContent = "AI: Easy";
+    }
+}
 
 window.onload = () =>{
     aiButton.style.backgroundColor = "white";
