@@ -33,7 +33,7 @@ startGame();
 function startGame(){
 
     cells.forEach(cell => {
-        cell.addEventListener("click", handleClickCell, {once: true});
+        cell.addEventListener("click", handleClickCell);
     })
 
 }
@@ -51,15 +51,22 @@ function resetBoard(){
 
 
 function handleClickCell(e) {
+
     const cell = e.target;
+
+    if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS) || currentPlayer !== X_CLASS) {
+        return;
+    }
+
     placeMarker(cell, currentPlayer)
+
     if(checkWin(currentPlayer)){
         handleScore(currentPlayer);
     } else if (isDraw()) {
         alert("Draw!");
     } else {
         swapTurn();
-        setTimeout(aiMove, 100);
+        setTimeout(aiMove, 1000);
     }
 }
 
@@ -109,7 +116,18 @@ function placeMarker(cell, currentPlayer){
 }
 
 function swapTurn(){
+    const xLabel = document.querySelector("#x_label");
+    const oLabel = document.querySelector("#o_label");
+
     currentPlayer = currentPlayer == X_CLASS ? O_CLASS : X_CLASS;
+
+    if(currentPlayer == X_CLASS){
+        oLabel.classList.remove("o_label_border");
+        xLabel.classList.add("x_label_border");
+    }else{
+        xLabel.classList.remove("x_label_border");
+        oLabel.classList.add("o_label_border");
+    }
 }
 
 function checkWin(currentPlayer) {

@@ -102,6 +102,14 @@ body{
     margin: 0 2rem;
 }
 
+.x_label_border{
+    border-bottom: solid var(--color-x) 0.4rem;
+}
+
+.o_label_border{
+    border-bottom: solid var(--color-o) 0.4rem;
+}
+
 .blink {
     animation: blink 1s infinite;
 }
