@@ -44,7 +44,7 @@ function startGame(){
         cell.addEventListener("click", handleClickCell);
     })
 
-    game.style.display = "block";
+    game.style.display = "flex";
     startScreen.style.display = "none";
 
 }

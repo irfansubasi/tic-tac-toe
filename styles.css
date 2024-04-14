@@ -108,6 +108,13 @@ a{
     grid-template-rows: 10rem 10rem 10rem;
 }
 
+#game{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .cell{
     filter: drop-shadow(0 0 0.9rem white);
     border: solid white 0.2rem;
