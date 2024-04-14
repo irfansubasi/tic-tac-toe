@@ -10,6 +10,8 @@ let xScore = 0;
 let oScore = 0;
 let currentPlayer = X_CLASS;
 
+let isOpponentAi = true;
+
 const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -54,7 +56,7 @@ function handleClickCell(e) {
 
     const cell = e.target;
 
-    if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS) || currentPlayer !== X_CLASS) {
+    if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS) || (isOpponentAi && currentPlayer !== X_CLASS)) {
         return;
     }
 
@@ -62,11 +64,19 @@ function handleClickCell(e) {
 
     if(checkWin(currentPlayer)){
         handleScore(currentPlayer);
+        cells.forEach(cell => {
+            cell.removeEventListener("click", handleClickCell);
+        });
     } else if (isDraw()) {
         alert("Draw!");
     } else {
         swapTurn();
-        setTimeout(aiMove, 1000);
+        if(isOpponentAi){
+            setTimeout(aiMove, 1000);
+        }else{
+            return;
+        }
+        
     }
 }
 
