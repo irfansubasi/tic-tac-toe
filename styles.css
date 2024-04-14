@@ -27,13 +27,25 @@ body{
 }
 
 #start-screen{
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .title{
     font-size: 5rem;
+}
+
+.p1{
+    margin-right: 5rem;
+}
+
+.p2{
+    margin-left: 5rem;
 }
 
 .players{
@@ -44,6 +56,7 @@ body{
 }
 
 .select-type{
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,6 +64,7 @@ body{
 }
 
 .btn{
+    font-family: inherit;
     cursor: pointer;
     border: solid white 0.1rem;
     border-radius: 0.2rem;
@@ -116,6 +130,36 @@ body{
     border-bottom: none;
 }
 
+dialog::backdrop{
+    backdrop-filter: blur(0.2rem);
+}
+
+dialog{
+    font-size: 4rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 0.5rem;
+    height: 20%;
+    width: 40%;
+    padding: 1rem;
+}
+
+.announce{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.announce .btn{
+    border: solid black 0.2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
 .X{
     background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-x) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
 	linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-x) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
@@ -147,8 +191,8 @@ body{
 }
 
 .label{
-    width: 5rem;
-    height: 5rem;
+    width: 8rem;
+    height: 8rem;
     margin: 0 2rem;
 }
 
