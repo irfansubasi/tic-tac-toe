@@ -1,6 +1,10 @@
 const board = document.querySelector("#board");
-
 const cells = document.querySelectorAll(".cell");
+const aiButton = document.getElementById("player2-ai");
+const humanButton = document.getElementById("player2-human");
+const startButton = document.querySelector(".start-btn");
+const game = document. getElementById("game");
+const startScreen = document. getElementById("start-screen");
 
 
 
@@ -30,13 +34,15 @@ const Difficulty = {
 
 let currentDifficulty = Difficulty.EASY;
 
-startGame();
 
 function startGame(){
 
     cells.forEach(cell => {
         cell.addEventListener("click", handleClickCell);
     })
+
+    game.style.display = "block";
+    startScreen.style.display = "none";
 
 }
 
@@ -246,3 +252,41 @@ function minimax(cells, depth, isMaximizing) {
 }
 
 
+
+function setupGame(state){
+
+    isOpponentAi = state;
+
+}
+
+humanButton.addEventListener("click", function() {
+    setupGame(false);
+
+    this.style.backgroundColor = "white";
+    this.style.color = "black";
+    this.style.transform = "scale(1.12)";
+
+    aiButton.style.backgroundColor = "";
+    aiButton.style.color = "";
+    aiButton.style.transform = "";
+});
+
+aiButton.addEventListener("click", function() {
+    setupGame(true);
+
+    this.style.backgroundColor = "white";
+    this.style.color = "black";
+    this.style.transform = "scale(1.12)";
+
+    humanButton.style.backgroundColor = "";
+    humanButton.style.color = "";
+    humanButton.style.transform = "";
+});
+
+startButton.addEventListener("click", startGame);
+
+window.onload = () =>{
+    aiButton.style.backgroundColor = "white";
+    aiButton.style.color = "black";
+    aiButton.style.transform = "scale(1.12)";
+}

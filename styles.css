@@ -16,6 +16,7 @@ html{
 }
 
 body{
+    color: white;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -23,6 +24,55 @@ body{
     align-items: center;
     height: 100vh;
     font-family: "Chakra Petch", Arial, sans-serif;
+}
+
+#start-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title{
+    font-size: 5rem;
+}
+
+.players{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-type{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn{
+    cursor: pointer;
+    border: solid white 0.1rem;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    transition: 1s;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+}
+
+.start-btn{
+    text-align: center;
+    width: 50%;
+    margin-top: 3rem;
+    align-self: center;
+}
+
+#player1-human{
+    background-color: white;
+    color: black;
 }
 
 #board{

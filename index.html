@@ -10,27 +10,47 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="score-board">
-        <div id="score">
-            <div id="x_label" class="label X x_label_border"></div>
-            <span class="x-score">0</span>
-            :
-            <span class="o-score">0</span>
-            <div id="o_label" class="label O"></div>
+    <div id="start-screen">
+        <h1 class="title">Tic Tac Toe</h1>
+        <div class="players">
+            <div class="p1">
+                <div class="label X"></div>
+                <div class="select-type">
+                    <span id="player1-human" class="btn">Player</span>
+                </div>
+            </div>
+            <div class="p2">
+                <div class="label O"></div>
+                <div class="select-type">
+                    <span id="player2-human" class="btn">Player</span>
+                    <span id="player2-ai" class="ai-btn btn">AI</span>
+                </div>
+            </div>
+        </div>
+        <div class="start-btn btn">Start Game</div>
+    </div>
+    <div style="display: none" id="game">
+        <div id="score-board">
+            <div id="score">
+                <div id="x_label" class="label X x_label_border"></div>
+                <span class="x-score">0</span>
+                :
+                <span class="o-score">0</span>
+                <div id="o_label" class="label O"></div>
+            </div>
+        </div>
+        <div id="board">
+            <div id="cell-0" class="cell"></div>
+            <div id="cell-1" class="cell"></div>
+            <div id="cell-2" class="cell"></div>
+            <div id="cell-3" class="cell"></div>
+            <div id="cell-4" class="cell"></div>
+            <div id="cell-5" class="cell"></div>
+            <div id="cell-6" class="cell"></div>
+            <div id="cell-7" class="cell"></div>
+            <div id="cell-8" class="cell"></div>
         </div>
     </div>
-    <div id="board">
-        <div id="cell-0" class="cell"></div>
-        <div id="cell-1" class="cell"></div>
-        <div id="cell-2" class="cell"></div>
-        <div id="cell-3" class="cell"></div>
-        <div id="cell-4" class="cell"></div>
-        <div id="cell-5" class="cell"></div>
-        <div id="cell-6" class="cell"></div>
-        <div id="cell-7" class="cell"></div>
-        <div id="cell-8" class="cell"></div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
