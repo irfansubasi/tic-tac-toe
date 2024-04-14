@@ -124,7 +124,7 @@ function handleScore(currentPlayer){
         oScoreSpan.textContent = oScore;
         setTimeout(resetBoard, 2000)
         
-        if(xScore === 3){
+        if(oScore === 3){
             endGame();
         }
     }
