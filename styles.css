@@ -1,0 +1,83 @@
+:root{
+    --color-x: #ffdddd;
+    --color-o: #d8d7ff;
+    --l: 0.6rem;
+    --b: 0.3rem
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#board{
+    display: grid;
+    grid-template-columns: 10rem 10rem 10rem;
+    grid-template-rows: 10rem 10rem 10rem;
+}
+
+.cell{
+    filter: drop-shadow(0 0 0.9rem white);
+    border: solid white 0.2rem;
+    height: 10rem;
+    width: 10rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cell-0,
+#cell-1,
+#cell-2{
+    border-top: none;
+}
+
+#cell-0,
+#cell-3,
+#cell-6{
+    border-left: none;
+}
+
+#cell-2,
+#cell-5,
+#cell-8{
+    border-right: none;
+}
+
+#cell-6,
+#cell-7,
+#cell-8{
+    border-bottom: none;
+}
+
+.X{
+    background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-x) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+	linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-x) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+    filter: drop-shadow(0 0 0.4rem red) blur(0.5px);
+}
+
+.O{
+    background: radial-gradient(circle, transparent calc(50% - var(--b)), var(--color-o) calc(50% - var(--b)) calc(50% + var(--b)), transparent calc(50% + var(--b)));
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 1rem blue) blur(0.5px);
+}
