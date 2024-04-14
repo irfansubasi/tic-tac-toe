@@ -281,6 +281,8 @@ humanButton.addEventListener("click", function() {
     aiButton.style.backgroundColor = "";
     aiButton.style.color = "";
     aiButton.style.transform = "";
+
+    aiDiffButton.style.display = "none";
 });
 
 aiButton.addEventListener("click", function() {
@@ -293,6 +295,8 @@ aiButton.addEventListener("click", function() {
     humanButton.style.backgroundColor = "";
     humanButton.style.color = "";
     humanButton.style.transform = "";
+
+    aiDiffButton.style.display = "block";
 });
 
 startButton.addEventListener("click", startGame);
