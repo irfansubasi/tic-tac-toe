@@ -2,8 +2,12 @@ const board = document.querySelector("#board");
 
 const cells = document.querySelectorAll(".cell");
 
+
+
 const X_CLASS = "X";
 const O_CLASS = "O";
+let xScore = 0;
+let oScore = 0;
 let currentPlayer = X_CLASS;
 
 const winningCombos = [
@@ -33,11 +37,24 @@ function startGame(){
     })
 
 }
+
+function resetBoard(){
+
+    cells.forEach(cell => {
+        cell.classList.remove(`${X_CLASS}`);
+        cell.classList.remove(`${O_CLASS}`);
+        cell.classList.remove('blink');
+    })
+
+    startGame();
+}
+
+
 function handleClickCell(e) {
     const cell = e.target;
     placeMarker(cell, currentPlayer)
     if(checkWin(currentPlayer)){
-        endGame();
+        handleScore(currentPlayer);
     } else if (isDraw()) {
         alert("Draw!");
     } else {
@@ -55,6 +72,38 @@ function endGame() {
     
 }
 
+function handleScore(currentPlayer){
+
+    const xScoreSpan = document.querySelector(".x-score");
+    const oScoreSpan = document.querySelector(".o-score");
+
+    if(currentPlayer === X_CLASS){
+        xScore++;
+        xScoreSpan.textContent = `${xScore}`;
+        setTimeout(resetBoard, 2000)
+        if(xScore === 3){
+            endGame(); 
+        }
+
+    } else{
+        oScore++;
+        oScoreSpan.textContent = `${oScore}`;
+        setTimeout(resetBoard, 2000)
+        
+        if(xScore === 3){
+            endGame();
+        }
+    }
+
+    
+    const winningCombination = checkWin(currentPlayer);
+
+    winningCombination.forEach(index => {
+        cells[index].classList.add('blink');
+    });
+
+}
+
 function placeMarker(cell, currentPlayer){
     cell.classList.add(currentPlayer);
 }
@@ -64,7 +113,7 @@ function swapTurn(){
 }
 
 function checkWin(currentPlayer) {
-    return winningCombos.some(combination => {
+    return winningCombos.find(combination => {
         return combination.every(index => {
             return cells[index].classList.contains(currentPlayer);
         });
@@ -94,7 +143,7 @@ function makeRandomMove() {
     placeMarker(randomCell, currentPlayer);
 
     if (checkWin(currentPlayer)) {
-        endGame();
+        handleScore(currentPlayer)
     } else if (isDraw()) {
         alert("Draw!");
     } else {
@@ -123,7 +172,7 @@ function makeMinMaxMove() {
     cells[move].removeEventListener("click", handleClickCell);
 
     if (checkWin(currentPlayer)) {
-        endGame();
+        handleScore(currentPlayer);
     } else if (isDraw()) {
         alert("Draw!");
     } else {

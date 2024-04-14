@@ -22,6 +22,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: "Chakra Petch", Arial, sans-serif;
 }
 
 #board{
@@ -80,4 +81,39 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     filter: drop-shadow(0 0 1rem blue) blur(0.5px);
+}
+
+#score-board{
+    color: white;
+    font-size: 3rem;
+}
+
+#score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 5rem;
+}
+
+.label{
+    width: 5rem;
+    height: 5rem;
+    margin: 0 2rem;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
