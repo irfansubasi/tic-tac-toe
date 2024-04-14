@@ -3,8 +3,11 @@ const cells = document.querySelectorAll(".cell");
 const aiButton = document.getElementById("player2-ai");
 const humanButton = document.getElementById("player2-human");
 const startButton = document.querySelector(".start-btn");
-const game = document. getElementById("game");
-const startScreen = document. getElementById("start-screen");
+const game = document.getElementById("game");
+const startScreen = document.getElementById("start-screen");
+const announce = document.querySelector(".announce p");
+const dialog = document.querySelector("dialog");
+const restartButton = document.getElementById("restart-btn");
 
 
 
@@ -74,7 +77,7 @@ function handleClickCell(e) {
             cell.removeEventListener("click", handleClickCell);
         });
     } else if (isDraw()) {
-        alert("Draw!");
+        setTimeout(resetBoard, 2000);
     } else {
         swapTurn();
         if(isOpponentAi){
@@ -87,13 +90,21 @@ function handleClickCell(e) {
 }
 
 function endGame() {
+
+    dialog.showModal();
+
     if(currentPlayer === X_CLASS){
-        alert("X's win");
+        announce.textContent = `X's Win!`;
     }else{
-        alert("O's win");
+        announce.textContent = `O's Win!`;
     }
     
 }
+
+restartButton.addEventListener("click", () => {
+    dialog.close();
+    location.reload();
+})
 
 function handleScore(currentPlayer){
 
@@ -102,7 +113,7 @@ function handleScore(currentPlayer){
 
     if(currentPlayer === X_CLASS){
         xScore++;
-        xScoreSpan.textContent = `${xScore}`;
+        xScoreSpan.textContent = xScore;
         setTimeout(resetBoard, 2000)
         if(xScore === 3){
             endGame(); 
@@ -110,7 +121,7 @@ function handleScore(currentPlayer){
 
     } else{
         oScore++;
-        oScoreSpan.textContent = `${oScore}`;
+        oScoreSpan.textContent = oScore;
         setTimeout(resetBoard, 2000)
         
         if(xScore === 3){
@@ -130,6 +141,7 @@ function handleScore(currentPlayer){
 function placeMarker(cell, currentPlayer){
     cell.classList.add(currentPlayer);
 }
+
 
 function swapTurn(){
     const xLabel = document.querySelector("#x_label");
@@ -179,7 +191,7 @@ function makeRandomMove() {
     if (checkWin(currentPlayer)) {
         handleScore(currentPlayer)
     } else if (isDraw()) {
-        alert("Draw!");
+        setTimeout(resetBoard, 2000);
     } else {
         swapTurn();
     }
@@ -208,7 +220,7 @@ function makeMinMaxMove() {
     if (checkWin(currentPlayer)) {
         handleScore(currentPlayer);
     } else if (isDraw()) {
-        alert("Draw!");
+        setTimeout(resetBoard, 2000);
     } else {
         swapTurn();
     }
