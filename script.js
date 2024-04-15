@@ -40,6 +40,10 @@ let currentDifficulty = Difficulty.EASY;
 
 function startGame(){
 
+    if(currentPlayer == O_CLASS && isOpponentAi){
+        aiMove();
+    }
+
     cells.forEach(cell => {
         cell.addEventListener("click", handleClickCell);
     })
