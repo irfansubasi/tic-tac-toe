@@ -3,45 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link to Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome icons -->
     <script src="https://kit.fontawesome.com/f74be9f8aa.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
+     <!-- Start screen of the game -->
     <div id="start-screen">
+        <!-- Title of the game -->
         <h1 class="title">Tic Tac Toe</h1>
+        <!-- Players section -->
         <div class="players">
+            <!-- Player 1 -->
             <div class="p1">
+                <!-- Label for Player 1 -->
                 <div class="label X"></div>
+                <!-- Selection type for Player 1 -->
                 <div class="select-type">
+                    <!-- Button to select Player for Player 1 -->
                     <span id="player1-human" class="btn">Player</span>
                 </div>
             </div>
+            <!-- Player 2 -->
             <div class="p2">
+                <!-- Label for Player 2 -->
                 <div class="label O"></div>
+                <!-- Selection type for Player 2 -->
                 <div class="select-type">
+                    <!-- Button to select Player for Player 2 -->
                     <span id="player2-human" class="btn">Player</span>
+                    <!-- Button to select AI for Player 2 -->
                     <span id="player2-ai" class="ai-btn btn">AI</span>
                 </div>
+                <!-- Button to select AI difficulty for Player 2 -->
                 <span class="btn diff">AI: Easy</span>
             </div>
         </div>
+        <!-- Button to start the game -->
         <div class="start-btn btn">Start Game</div>
     </div>
+    <!-- Game section -->
     <div style="display: none" id="game">
+        <!-- Score board -->
         <div id="score-board">
             <div id="score">
+                <!-- Score for Player X -->
                 <div id="x_label" class="label X x_label_border"></div>
                 <span class="x-score">0</span>
+                <!-- Separator -->
                 :
+                <!-- Score for Player O -->
                 <span class="o-score">0</span>
                 <div id="o_label" class="label O"></div>
             </div>
         </div>
+        <!-- Game board -->
         <div id="board">
+            <!-- Individual cells of the board -->
             <div id="cell-0" class="cell"></div>
             <div id="cell-1" class="cell"></div>
             <div id="cell-2" class="cell"></div>
@@ -52,25 +77,32 @@
             <div id="cell-7" class="cell"></div>
             <div id="cell-8" class="cell"></div>
         </div>
+        <!-- Dialog for announcing game result -->
         <dialog>
             <div class="announce">
                 <p></p>
+                <!-- Button to restart the game -->
                 <button id="restart-btn" class="btn">Restart?</button>
             </div>
         </dialog>
     </div>
+    <!-- Footer section -->
     <footer class="footer">
         <p>
+            <!-- Copyright notice -->
             Copyright ©
             <script>
               document.write(new Date().getFullYear())
             </script>
             |
           </p>
+          <!-- Link to GitHub profile -->
           <a href="https://github.com/irfansubasi" target="_blank">
             irfansubasi
+            <!-- GitHub icon -->
             <i class="fa-brands fa-github"></i></a>
     </footer>
+    <!-- Script file for game functionality -->
     <script src="script.js"></script>
 </body>
 </html>

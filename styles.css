@@ -1,3 +1,4 @@
+/* Root variables */
 :root{
     --color-x: #ffdddd;
     --color-o: #d8d7ff;
@@ -5,18 +6,21 @@
     --b: 0.3rem
 }
 
+/* Resetting default styles */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Setting base font size */
 html{
     font-size: 16px;
     position: relative;
     min-height: 100%;
 }
 
+/* Body styles */
 body{
     color: white;
     background-color: black;
@@ -28,11 +32,13 @@ body{
     font-family: "Chakra Petch", Arial, sans-serif;
 }
 
+/* Anchor styles */
 a{
     color: inherit;
     text-decoration: none;
 }
 
+/* Start screen styles */
 #start-screen{
     font-size: 1.5rem;
     display: flex;
@@ -43,14 +49,17 @@ a{
     width: 100%;
 }
 
+/* Title styles */
 .title{
     font-size: 5rem;
 }
 
+/* Player 1 styles */
 .p1{
     margin-right: 5rem;
 }
 
+/* Player 2 styles */
 .p2{
     display: flex;
     align-items: center;
@@ -58,12 +67,14 @@ a{
     margin-left: 5rem;
 }
 
+/* Players container styles */
 .players{
     margin-top: 2rem;
     display: flex;
     align-items:start;
 }
 
+/* Select type styles */
 .select-type{
     font-size: 1.5rem;
     display: flex;
@@ -72,6 +83,7 @@ a{
     margin-top: 1rem;
 }
 
+/* Button styles */
 .btn{
     font-family: inherit;
     cursor: pointer;
@@ -81,11 +93,13 @@ a{
     transition: 1s;
 }
 
+/* Button hover styles */
 .btn:hover{
     background-color: white;
     color: black;
 }
 
+/* Start button styles */
 .start-btn{
     text-align: center;
     width: 50%;
@@ -93,21 +107,25 @@ a{
     align-self: center;
 }
 
+/* AI difficulty button styles */
 .diff{
     margin-top: 1rem;
 }
 
+/* Player 1 (X) button styles */
 #player1-human{
     background-color: white;
     color: black;
 }
 
+/* Game board styles */
 #board{
     display: grid;
     grid-template-columns: 10rem 10rem 10rem;
     grid-template-rows: 10rem 10rem 10rem;
 }
 
+/* Game section styles */
 #game{
     display: flex;
     align-items: center;
@@ -115,6 +133,7 @@ a{
     flex-direction: column;
 }
 
+/* Cell styles */
 .cell{
     filter: drop-shadow(0 0 0.9rem white);
     border: solid white 0.2rem;
@@ -126,6 +145,8 @@ a{
     justify-content: center;
 }
 
+
+/* Cell border styles */
 #cell-0,
 #cell-1,
 #cell-2{
@@ -150,10 +171,13 @@ a{
     border-bottom: none;
 }
 
+
+/* Dialog backdrop styles */
 dialog::backdrop{
     backdrop-filter: blur(0.2rem);
 }
 
+/* Dialog styles */
 dialog{
     font-size: 4rem;
     position: fixed;
@@ -167,6 +191,7 @@ dialog{
     padding: 1rem;
 }
 
+/* Announcement section styles */
 .announce{
     display: flex;
     flex-direction: column;
@@ -174,12 +199,14 @@ dialog{
     align-items: center;
 }
 
+/* Announcement button styles */
 .announce .btn{
     border: solid black 0.2rem;
     font-size: 2rem;
     font-weight: 700;
 }
 
+/* X (Player 1) symbol styles */
 .X{
     background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-x) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
 	linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-x) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
@@ -189,6 +216,7 @@ dialog{
     filter: drop-shadow(0 0 0.4rem red) blur(0.5px);
 }
 
+/* O (Player 2) symbol styles */
 .O{
     background: radial-gradient(circle, transparent calc(50% - var(--b)), var(--color-o) calc(50% - var(--b)) calc(50% + var(--b)), transparent calc(50% + var(--b)));
     background-size: 100%;
@@ -197,11 +225,13 @@ dialog{
     filter: drop-shadow(0 0 1rem blue) blur(0.5px);
 }
 
+/* Score board styles */
 #score-board{
     color: white;
     font-size: 3rem;
 }
 
+/* Score styles */
 #score{
     display: flex;
     justify-content: center;
@@ -210,20 +240,24 @@ dialog{
     margin-bottom: 5rem;
 }
 
+/* Label styles */
 .label{
     width: 8rem;
     height: 8rem;
     margin: 0 2rem;
 }
 
+/* Border styles for X label */
 .x_label_border{
     border-bottom: solid var(--color-x) 0.4rem;
 }
 
+/* Border styles for O label */
 .o_label_border{
     border-bottom: solid var(--color-o) 0.4rem;
 }
 
+/* Blink animation */
 .blink {
     animation: blink 1s infinite;
 }
@@ -240,6 +274,7 @@ dialog{
     }
 }
 
+/* Footer styles */
 .footer{
     position: absolute;
     bottom: 0;
@@ -252,6 +287,7 @@ dialog{
     width: 100%;
 }
 
+/* Media query for smaller screens */
 @media (max-width: 550px){
     html{
         font-size: 10px;
